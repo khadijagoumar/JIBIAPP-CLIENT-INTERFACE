@@ -25,6 +25,32 @@
     font-weight: bold;
 
   }
+  /* Remove Bootstrap button styling */
+.btn {
+  /* Remove Bootstrap button styles */
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove button border */
+  border-radius: 4px; /* Button border radius */
+  padding: 10px 20px; /* Button padding */
+  font-size: 16px; /* Button font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker background color on hover */
+}
+
+.btn:focus {
+  outline: none; /* Remove focus outline */
+}
+
+/* Optional: Adjust button width */
+.btn-login {
+  width: 200px; /* Set button width */
+}
+
   
   .button {
     display: block;

@@ -1,29 +1,22 @@
-
 <app-navbar></app-navbar>
 
-<div>
-  <div class="home-container">
-    <img src="https://i.pinimg.com/564x/5c/92/bb/5c92bb5cc8a586843d47f9bf3d26a01d.jpg" 
-    alt="Left Image" class="left-image">
-    <div class="text-container">
-      <p class="text">Welcome to JiBi , your secure and convenient digital
-         wallet solution for seamless transactions.<br/> With our user-friendly platform, managing your
-          finances has never been easier. </p>
-      <button mat-raised-button color="primary" routerLink="/login" class="button">Login</button>
+<div class="container">
+  <div class="row align-items-center home-container">
+    <div class="col-md-6">
+      <img src="https://i.pinimg.com/564x/5c/92/bb/5c92bb5cc8a586843d47f9bf3d26a01d.jpg" alt="Left Image" class="img-fluid rounded-left">
     </div>
-   
-  </div >
-  <div class="second-container">
-      <div class="text-container">
-        <p class="text">Manage Your Payments Conveniently only by using your phone.
-          Join us today and unlock a world of possibilities at your fingertips.
-        </p>
-        
-      </div>
-      <div class="btm-img">
-        <img src="https://static.vecteezy.com/system/resources/previews/000/684/243/non_2x/online-payment.jpg"
-        alt="Bottom Image" class="bottom-image">
-      </div>
+    <div class="col-md-6 text-container">
+      <p class="text">Welcome to JiBi, your secure and convenient digital wallet solution for seamless transactions. With our user-friendly platform, managing your finances has never been easier.</p>
+      <button mat-raised-button color="primary" routerLink="/login" class="button btn-login">Login</button>
+    </div>
+  </div>
+  <div class="row align-items-center second-container">
+    <div class="col-md-6 text-container">
+      <p class="text">Manage Your Payments Conveniently only by using your phone. Join us today and unlock a world of possibilities at your fingertips.</p>
+    </div>
+    <div class="col-md-6 btm-img">
+      <img src="https://static.vecteezy.com/system/resources/previews/000/684/243/non_2x/online-payment.jpg" alt="Bottom Image" class="img-fluid rounded-right">
+    </div>
   </div>
 </div>
 <app-footer></app-footer>
