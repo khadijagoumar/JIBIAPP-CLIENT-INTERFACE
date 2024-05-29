@@ -32,6 +32,19 @@ export class FactureFormComponent implements OnInit {
     console.log(this.creanceAmount);
     console.log("type of transaction: " + this.transactionType);
   }
+  
+  navigateToRecap() {
+    this.router.navigate(['/recapitulatif'], {
+      state: {
+        data: this.formData,
+        creancierName: this.creancierName,
+        creancierLogo: this.creancierLogo,
+        creanceName: this.creanceName,
+        creanceAmount: this.creanceAmount,
+        transactionType: this.transactionType
+      }
+    });
+  }
 
   getTransactionDetails(): { label: string, value: any }[] {
     return [
