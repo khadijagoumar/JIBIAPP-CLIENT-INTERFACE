@@ -19,6 +19,8 @@ import { PostLoginComponent } from './components/post-login/post-login.component
 import { EffectuerpaiementComponent } from './components/effectuerpaiement/effectuerpaiement.component';
 import { FactureFormComponent } from './components/facture-form/facture-form.component';
 import { RecapitulatifComponent } from './components/recapitulatif/recapitulatif.component';
+import { ServicesComponent } from './services/services.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -34,7 +36,9 @@ import { RecapitulatifComponent } from './components/recapitulatif/recapitulatif
     PostLoginComponent,
     EffectuerpaiementComponent,
     FactureFormComponent,
-    RecapitulatifComponent  ],
+    RecapitulatifComponent,
+    ServicesComponent,
+    AboutComponent  ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
