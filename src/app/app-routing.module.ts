@@ -7,6 +7,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { PostLoginComponent } from './components/post-login/post-login.component';
 import { FactureFormComponent } from './components/facture-form/facture-form.component';
 import { EffectuerpaiementComponent } from './components/effectuerpaiement/effectuerpaiement.component';
+import { RecapitulatifComponent } from './components/recapitulatif/recapitulatif.component';
 const routes: Routes = [
   {path:'',component:WelcomeComponent},
   {path:'home',component:WelcomeComponent},
@@ -14,7 +15,9 @@ const routes: Routes = [
   {path:'contact',component:ContactComponent},
   {path:'post',component:PostLoginComponent},
   { path: 'effectuer-paiement/:id', component: EffectuerpaiementComponent },
-  {path:'facture',component:FactureFormComponent},
+  { path: 'facture-form', component: FactureFormComponent },
+  { path: 'recapitulatif', component: RecapitulatifComponent },
+
 ];
 
 @NgModule({

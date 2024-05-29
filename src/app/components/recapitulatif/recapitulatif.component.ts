@@ -1,12 +1,14 @@
+// recapitulatif.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-facture-payment',
-  templateUrl: './facture-form.component.html',
-  styleUrls: ['./facture-form.component.css']
+  selector: 'app-recapitulatif',
+  templateUrl: './recapitulatif.component.html',
+  styleUrls: ['./recapitulatif.component.css']
 })
-export class FactureFormComponent implements OnInit {
+export class RecapitulatifComponent implements OnInit {
   formData: any;
   creancierName: string;
   creancierLogo: string;
@@ -43,5 +45,11 @@ export class FactureFormComponent implements OnInit {
   calculateTotalAmount(): number {
     return this.creanceAmount;
   }
- 
+
+  confirmTransaction() {
+    // Navigate back to the initial interface with a success message
+    this.router.navigate(['/initial-interface'], {
+      state: { success: true, message: 'Transaction successful!' }
+    });
+  }
 }

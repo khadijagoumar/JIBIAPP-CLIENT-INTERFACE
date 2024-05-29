@@ -27,7 +27,7 @@
               <p class="text-gray-700 font-bold">
                 {{ transactionType === 'donation' ? 'Donateur' : transactionType === 'recharge' ? 'Rechargeur' : 'Facturant' }}
               </p>
-              <p>{{ formData['donateur'] || formData['rechargeur'] || formData['facturant'] || 'N/A' }}</p>
+              <p>{{ formData['Nom et Prénom du donateur'] || 'N/A' }}</p>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="flex justify-end">
-          <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
+          <button routerLink="/recapitulatif" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
             Valider
           </button>
         </div>

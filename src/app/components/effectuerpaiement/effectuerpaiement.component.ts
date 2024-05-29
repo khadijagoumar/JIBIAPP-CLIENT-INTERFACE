@@ -48,11 +48,11 @@ export class EffectuerpaiementComponent implements OnInit {
       }
     };
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const companyId = urlParams.get('id');
-
-    this.company = companies[companyId as keyof typeof companies];
-    this.buildForm();
+    this.activatedRoute.paramMap.subscribe(params => {
+      const companyId = params.get('id');
+      this.company = companies[companyId as keyof typeof companies];
+      this.buildForm();
+    });
   }
 
   buildForm() {
@@ -68,8 +68,15 @@ export class EffectuerpaiementComponent implements OnInit {
   onSubmit() {
     if (this.paymentForm.valid) {
       const formData = this.paymentForm.value;
-      // You can navigate to another page or handle the form data as needed
-      console.log(formData);
+      this.router.navigate(['/facture-form'], {
+        state: {
+          data: formData,
+          creancierName: this.company.name,
+          creancierLogo: this.company.imgSrc,
+          transactionType: 'facture', // Adjust based on the company type if needed
+          creanceAmount: formData["Montant du don (DH)"] // Adjust based on the input field name
+        }
+      });
     }
   }
 }
