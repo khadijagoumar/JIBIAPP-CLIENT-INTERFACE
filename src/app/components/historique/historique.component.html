@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Historique des paiements</h1>
+  <div *ngIf="paymentHistory.length > 0; else noHistory">
+    <table>
+      <thead>
+        <tr>
+          <th>Créancier</th>
+          <th>Montant</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payment of paymentHistory">
+          <td>{{ payment.creancierName }}</td>
+          <td>{{ payment.creanceAmount }}</td>
+          <td>{{ payment.date | date:'short' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #noHistory>
+    <p>Aucun historique de paiement trouvé.</p>
+  </ng-template>
+</div>

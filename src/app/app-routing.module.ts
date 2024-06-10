@@ -9,6 +9,8 @@ import { EffectuerpaiementComponent } from './components/effectuerpaiement/effec
 import { RecapitulatifComponent } from './components/recapitulatif/recapitulatif.component';
 import { ServicesComponent } from './services/services.component';
 import { AboutComponent } from './about/about.component';
+import {HistoriqueComponent} from './components/historique/historique.component';
+import { PaymentHistoryComponent } from './components/payment-history/payment-history.component';
 const routes: Routes = [
   {path:'',component:WelcomeComponent},
   {path:'home',component:WelcomeComponent},
@@ -19,7 +21,9 @@ const routes: Routes = [
   { path: 'facture-form', component: FactureFormComponent },
   { path: 'recapitulatif', component: RecapitulatifComponent },
   {path:'services',component:ServicesComponent},
-  {path:'about', component:AboutComponent}
+  {path:'about', component:AboutComponent},
+  { path: 'historique', component: HistoriqueComponent },
+  { path: '', redirectTo: '/effectuer-paiement', pathMatch: 'full' }
 
 ];
 

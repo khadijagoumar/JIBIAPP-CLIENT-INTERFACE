@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PaymentHistoryService } from 'C:/Users/ORIGINAL SHOP/Desktop/JIBI-APP/HomePage-Client/src/app/services/payment-history.service';
 
 @Component({
   selector: 'app-paiement-form',
@@ -10,11 +11,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class EffectuerpaiementComponent implements OnInit {
   company: any;
   paymentForm: FormGroup;
+  isHistoryShown = false;
+  paymentHistory: any[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private paymentHistoryService: PaymentHistoryService
   ) {
     this.paymentForm = this.formBuilder.group({});
   }
@@ -26,7 +30,7 @@ export class EffectuerpaiementComponent implements OnInit {
         name: "IAM RECHARGES",
         fields: ["Nom et Prénom du donateur", "Montant du don (DH)"]
       },
-      "iam-factures": {
+       "iam-factures": {
         imgSrc: "https://www.iam.ma/ImagesMarocTelecom/Phototh%C3%A8que/Images-grandes/maroc-telecom-blanc-ar-grande.jpg",
         name: "IAM FACTURES",
         fields: ["Nom et Prénom du donateur", "Montant du don (DH)"]
@@ -46,12 +50,17 @@ export class EffectuerpaiementComponent implements OnInit {
         name: "AMENDIS TETOUAN",
         fields: ["Nom et Prénom du donateur", "Montant du don (DH)"]
       }
+    
     };
 
     this.activatedRoute.paramMap.subscribe(params => {
       const companyId = params.get('id');
       this.company = companies[companyId as keyof typeof companies];
       this.buildForm();
+    });
+
+    this.paymentHistoryService.getPaymentHistory().subscribe(history => {
+      this.paymentHistory = history;
     });
   }
 
@@ -68,6 +77,13 @@ export class EffectuerpaiementComponent implements OnInit {
   onSubmit() {
     if (this.paymentForm.valid) {
       const formData = this.paymentForm.value;
+      this.paymentHistoryService.addPayment({
+        ...formData,
+        creancierName: this.company.name,
+        creancierLogo: this.company.imgSrc,
+        transactionType: 'facture', // Adjust based on the company type if needed
+        creanceAmount: formData["Montant du don (DH)"] // Adjust based on the input field name
+      });
       this.router.navigate(['/facture-form'], {
         state: {
           data: formData,
@@ -78,5 +94,12 @@ export class EffectuerpaiementComponent implements OnInit {
         }
       });
     }
+  }
+
+  showHistory() {
+    this.isHistoryShown = true;
+    this.paymentHistoryService.getPaymentHistory().subscribe(history => {
+      this.paymentHistory = history;
+    });
   }
 }

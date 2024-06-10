@@ -21,6 +21,11 @@ import { FactureFormComponent } from './components/facture-form/facture-form.com
 import { RecapitulatifComponent } from './components/recapitulatif/recapitulatif.component';
 import { ServicesComponent } from './services/services.component';
 import { AboutComponent } from './about/about.component';
+import {PaymentHistoryService} from './services/payment-history.service';
+import { CommonModule } from '@angular/common';
+import { DatePipe } from '@angular/common';
+
+import { HistoriqueComponent } from './components/historique/historique.component';
 
 
 
@@ -38,17 +43,23 @@ import { AboutComponent } from './about/about.component';
     FactureFormComponent,
     RecapitulatifComponent,
     ServicesComponent,
-    AboutComponent  ],
+    AboutComponent,
+    HistoriqueComponent,
+   
+     ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    CommonModule 
    
   ],
   providers: [
     provideClientHydration(),
+    PaymentHistoryService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
